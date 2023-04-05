@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import SignIn from "./pages/Auth/SignIn";
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <div>Hello world!</div>,
+      element: <SignIn />,
     },
   ]);
   return <RouterProvider router={router} />;
