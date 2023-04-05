@@ -1,4 +1,5 @@
 import { Fragment, SVGProps, FC } from "react";
+import { Link } from "react-router-dom";
 import { Formik, Field, Form, FormikHelpers, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import LeftContainer from "components/Auth/LeftContainer";
@@ -20,7 +21,7 @@ const SignIn: FC = () => {
     email: Yup.string().email("Invalid email").required("Required"),
   });
   return (
-    <section className="w-full  antialiased auth-wrapper">
+    <section className="w-full h-screen antialiased auth-wrapper">
       <LeftContainer />
       <div className="h-full container-right overflow-auto">
         <div className="absolute right-5 top-5">{/* <LanguageToggle /> */}</div>
@@ -81,6 +82,17 @@ const SignIn: FC = () => {
                     >
                       Sign In
                     </Button>
+                    <span className="block py-2 text-center text-gray-500">
+                      or
+                    </span>
+
+                    <Link
+                      className="bg-customGreen-400 w-full text-center text-white p-4 rounded-lg tracking-wide font-semibold focus:outline-none hover:opacity-70 shadow-md block"
+                      to="/signup"
+                      relative="path"
+                    >
+                      Sign Up
+                    </Link>
                   </Form>
                 </>
               )}
