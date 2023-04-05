@@ -1,12 +1,26 @@
 import { Fragment, SVGProps, FC } from "react";
-import { Formik, Field, Form, FormikHelpers } from "formik";
+import { Formik, Field, Form, FormikHelpers, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import LeftContainer from "components/Auth/LeftContainer";
 import Input from "components/Inputs/Input";
 import Logo from "assets/images/logos/logo.png";
+import Button from "components/Buttons/Button";
 import "assets/scss/auth.scss";
+import { isEmpty } from "utils";
+interface ISigninSchema {
+  email: string;
+  password: string;
+}
 const SignIn: FC = () => {
+  const SignInSchema: Yup.ObjectSchema<ISigninSchema> = Yup.object().shape({
+    password: Yup.string()
+      .min(8, "Too Short! Minimum 8 Characters")
+      .max(70, "Too Long!")
+      .required("Required"),
+    email: Yup.string().email("Invalid email").required("Required"),
+  });
   return (
-    <section className="w-full h-screen antialiased auth-wrapper">
+    <section className="w-full  antialiased auth-wrapper">
       <LeftContainer />
       <div className="h-full container-right overflow-auto">
         <div className="absolute right-5 top-5">{/* <LanguageToggle /> */}</div>
@@ -27,59 +41,49 @@ const SignIn: FC = () => {
             </div>
             <Formik
               initialValues={{
-                firstName: "",
-                lastName: "",
+                password: "",
                 email: "",
               }}
-              onSubmit={() => {
-                console.log("Hello");
+              onSubmit={(values) => {
+                console.log(values);
               }}
+              validationSchema={SignInSchema}
             >
-              <Form>
-                <div className="pb-5 md:w-full">
-                  <Input
-                    name="fullName"
-                    type={"text"}
-                    label={"Company Name"}
-                    placeholder={"Company Name"}
-                    id={"fullName"}
-                  />
-                </div>
+              {({ errors, touched }) => (
+                <>
+                  <Form>
+                    <div className="pb-5 md:w-full">
+                      <Input
+                        id={"email"}
+                        name="email"
+                        type={"email"}
+                        label={"Email"}
+                        placeholder={"test@example.com"}
+                      />
+                    </div>
+                    <div className="pb-5 md:w-full">
+                      <Input
+                        id={"password"}
+                        name="password"
+                        type={"password"}
+                        label={"Password"}
+                        placeholder={"*******"}
+                      />
+                    </div>
 
-                <div className="pb-5 md:w-full">
-                  <Input
-                    id={"email"}
-                    name="email"
-                    type={"email"}
-                    label={"Email"}
-                    placeholder={"test@example.com"}
-                  />
-                </div>
-                <div className="pb-5 md:w-full">
-                  <Input
-                    id={"password"}
-                    name="password"
-                    type={"password"}
-                    label={"Password"}
-                    placeholder={"*******"}
-                  />
-                </div>
-
-                <div className="pb-4">
-                  <label
-                    htmlFor="rememberMe"
-                    className="text-gray-500 text-base font-normal"
-                  >
-                    <input
-                      type="checkbox"
-                      className="rounded mr-2 checked:bg-blue-600 checked:border-transparent"
-                      name=""
-                      id="rememberMe"
-                    />
-                    Remember me
-                  </label>
-                </div>
-              </Form>
+                    <Button
+                      className={
+                        isEmpty(errors)
+                          ? "bg-customGreen-200 text-white"
+                          : "opacity-70 cursor-not-allowed bg-slate-500 text-white"
+                      }
+                      type="submit"
+                    >
+                      Sign In
+                    </Button>
+                  </Form>
+                </>
+              )}
             </Formik>
           </div>
         </div>
