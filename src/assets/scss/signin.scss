@@ -1,0 +1,19 @@
+.auth-heading {
+  background: linear-gradient(#0e7469, #2bae95);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  @apply text-3xl my-4 font-semibold text-center;
+}
+
+.shape-wrapper {
+  overflow: hidden;
+  width: 90%;
+}
+
+.shape {
+  top: 0;
+  right: 0;
+  // transform: rotate(15deg);
+  @apply absolute;
+  z-index: -1;
+}

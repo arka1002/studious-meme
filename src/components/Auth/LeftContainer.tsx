@@ -1,6 +1,8 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import QuoteSlider from "./QuoteSlider";
-const LeftContainer = () => {
+import "assets/scss/signin.scss";
+import { FC } from "react";
+const LeftContainer: FC = () => {
   return (
     <div className="h-screen bg-customGreen-200 container-left relative">
       <div className="circle1 "></div>

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 
-const QuoteSlider = () => {
+const QuoteSlider: FC = () => {
   const quotes = [
     "CrossVal is a SaaS platform that automates the process of financial modeling for early-stage companies, enterprises, and investment funds",
     "CrossVal has the ability to build highly accurate models across industries and sectors with relative ease ",
