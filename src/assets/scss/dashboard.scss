@@ -1,0 +1,123 @@
+$left-container-width: 18rem;
+@layer components {
+  $width: 100px;
+  .dashboard {
+    &__left {
+      width: $width;
+      @apply fixed h-screen transform transition-all;
+      // @apply hidden h-screen transform transition-all;
+      .profilepic {
+        // @apply w-12 h-12;
+        @apply w-16 h-16;
+      }
+      .sidebar-wrapper {
+        li {
+          .nav-item {
+            @apply mx-4 flex items-center justify-center;
+            p {
+              @apply hidden;
+            }
+          }
+        }
+      }
+    }
+
+    &__right {
+      @apply ml-0 px-4;
+      .logo-wrapper {
+        @apply pt-6 pb-14;
+      }
+      .logo-img {
+        max-width: 18rem;
+      }
+    }
+  }
+}
+
+@screen md {
+  .dashboard {
+    &__left {
+      width: $left-container-width;
+      @apply fixed block;
+      .sidebar-wrapper {
+        li {
+          .nav-item {
+            @apply block;
+            p {
+              @apply inline-block;
+            }
+          }
+        }
+      }
+    }
+    &__right {
+      margin-left: $left-container-width;
+      @apply px-0;
+      .logo-wrapper {
+        @apply pt-20 pb-14;
+      }
+    }
+  }
+}
+
+@layer components {
+  $width: 14px;
+  .toggle {
+    .dashboard {
+      &__left {
+        width: $width;
+        display: revert;
+        @apply fixed;
+        .profilepic {
+          position: relative;
+          object-position: 50% 50%;
+
+          border-radius: 50%;
+          object-fit: cover;
+          @apply w-16 h-16;
+        }
+      }
+
+      &__right {
+        @apply ml-0 px-4;
+        .logo-wrapper {
+          @apply pt-6 pb-14;
+        }
+        .logo-img {
+          max-width: 18rem;
+        }
+      }
+    }
+  }
+}
+
+@screen md {
+  $width: 100px;
+  .toggle {
+    .dashboard {
+      &__left {
+        width: $width;
+        @apply fixed block;
+        .profilepic {
+          @apply w-12 h-12;
+        }
+        .sidebar-wrapper {
+          li {
+            .nav-item {
+              @apply mx-4 flex items-center justify-center;
+              p {
+                @apply hidden;
+              }
+            }
+          }
+        }
+      }
+      &__right {
+        margin-left: $width;
+        .logo-wrapper {
+          // @apply pt-20 pb-14;
+        }
+      }
+    }
+  }
+}

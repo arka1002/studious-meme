@@ -14,6 +14,10 @@ const OnBoardingWelcomePage: FC = () => {
     Yup.object().shape({
       onboarding: Yup.string().required("Required"),
     });
+
+  const handleSubmit = (data: IOnBoardingSchema) => {
+    console.log(data);
+  };
   return (
     <>
       <div className="flex justify-center">
@@ -44,7 +48,7 @@ const OnBoardingWelcomePage: FC = () => {
             }}
             validationSchema={OnBoardingSchema}
             onSubmit={(values) => {
-              console.log(values);
+              handleSubmit(values);
             }}
           >
             {({ errors, touched }) => (
