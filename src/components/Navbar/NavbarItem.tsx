@@ -15,9 +15,9 @@ const NavItem: FC<INavItemProps> = (props) => {
         to={(props.guest ? "/guest/dashboard" : "/dashboard") + props.linkto}
       >
         <div
-          className={
-            " nav-item my-2 border-transparent border-2  transition-all duration-500 block  hover:border-white  rounded-2xl mx-4 md:mx-6 item-link  border-white"
-          }
+          className={`nav-item my-2 border-transparent border-2  transition-all duration-500 block  hover:border-white  rounded-2xl mx-4 md:mx-6 item-link ${
+            props.active && "border-white"
+          }`}
         >
           <div className="text-white font-semibold flex  py-3 px-3 cursor-pointer">
             <span className="inline-block align-middle">{props.icon}</span>

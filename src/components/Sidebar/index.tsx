@@ -8,11 +8,13 @@ import { ReactComponent as Captable } from "assets/images/navbar-icons/Captable.
 import { ReactComponent as Work } from "assets/images/navbar-icons/Work.svg";
 import { ReactComponent as Brain } from "assets/images/navbar-icons/Brain.svg";
 import { ReactComponent as LogOut } from "assets/images/navbar-icons/Logout.svg";
+import { ReactComponent as Profile } from "assets/images/navbar-icons/Profle.svg";
 import NavItem from "components/Navbar/NavbarItem";
 import { FC, SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
 import "assets/scss/layout/sidebar.scss";
 interface ISidebarProps {
+  user?: any;
   showSidebar: boolean;
   toggler: (e: SyntheticEvent) => void;
 }
@@ -41,10 +43,14 @@ const Sidebar: FC<ISidebarProps> = (props) => {
           <div className="flex flex-col  items-center">
             <Link to="/dashboard/settings">
               <div className="mt-4 pb-4 ">
-                <img
-                  alt="Profile-Picture"
-                  className="  border-4 border-white rounded-full profilepic"
-                />
+                {props.user ? (
+                  <img
+                    alt="Profile-Picture"
+                    className="  border-4 border-white rounded-full profilepic"
+                  />
+                ) : (
+                  <Profile className="  border-4 border-white rounded-full profilepic" />
+                )}
               </div>
             </Link>
           </div>
@@ -108,7 +114,7 @@ const Sidebar: FC<ISidebarProps> = (props) => {
               <p className="align-middle  hidden md:inline-block">Logout</p>
             )}
             <span className="ml-2 align-middle inline-block">
-              <LogOut className=" w-6 h-6 text-white" />
+              <LogOut className=" w-6 h-6 text-white stroke-white" />
             </span>
           </div>
         </div>

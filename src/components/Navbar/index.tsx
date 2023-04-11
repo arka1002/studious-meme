@@ -6,7 +6,7 @@ const Navbar: FC = () => {
   const [notificationCount, setNotificationCount] = useState<number>(0);
   return (
     <>
-      <nav className="w-full py-4">
+      <nav className="w-full py-4 ">
         <div className="flex justify-between items-center">
           <div className="bg-white px-4 ">
             <h2 className="font-medium text-2xl inline-block align-middle gradient-text capitalize">

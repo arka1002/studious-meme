@@ -1,6 +1,7 @@
 import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
 import { FC, SyntheticEvent, useState } from "react";
+import { Outlet } from "react-router-dom";
 import "assets/scss/dashboard.scss";
 const DashboardLayout: FC = () => {
   const [showSidebar, setShowSidebar] = useState<boolean>(true);
@@ -19,7 +20,8 @@ const DashboardLayout: FC = () => {
         <>
           <Sidebar toggler={toggler} showSidebar={showSidebar} />
           <div className="dashboard__right pl-2 pr-4 md:pr-8">
-            {/* <Navbar /> */}
+            <Navbar />
+            <Outlet />
           </div>
         </>
       </div>
