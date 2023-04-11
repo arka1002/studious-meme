@@ -16,10 +16,12 @@ const DashboardLayout: FC = () => {
           (showSidebar && "toggle")
         }
       >
-        <Sidebar toggler={toggler} showSidebar={showSidebar} />
-        <div className="dashboard__right pl-2 pr-4 md:pr-8">
-          <Navbar />
-        </div>
+        <>
+          <Sidebar toggler={toggler} showSidebar={showSidebar} />
+          <div className="dashboard__right pl-2 pr-4 md:pr-8">
+            {/* <Navbar /> */}
+          </div>
+        </>
       </div>
     </>
   );

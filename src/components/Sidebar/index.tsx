@@ -11,6 +11,7 @@ import { ReactComponent as LogOut } from "assets/images/navbar-icons/Logout.svg"
 import NavItem from "components/Navbar/NavbarItem";
 import { FC, SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
+import "assets/scss/layout/sidebar.scss";
 interface ISidebarProps {
   showSidebar: boolean;
   toggler: (e: SyntheticEvent) => void;
@@ -32,7 +33,7 @@ const Sidebar: FC<ISidebarProps> = (props) => {
               onClick={(e: SyntheticEvent) => props.toggler(e)}
               role="button"
             >
-              <ArrowBack className=" w-6 text-white cursor-pointer" />
+              <ArrowBack className=" w-6 h-6 !text-white fill-white cursor-pointer" />
             </div>
           </div>
         </div>
@@ -107,7 +108,7 @@ const Sidebar: FC<ISidebarProps> = (props) => {
               <p className="align-middle  hidden md:inline-block">Logout</p>
             )}
             <span className="ml-2 align-middle inline-block">
-              <LogOut />
+              <LogOut className=" w-6 h-6 text-white" />
             </span>
           </div>
         </div>

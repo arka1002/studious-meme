@@ -1,0 +1,11 @@
+@tailwind components;
+@layer components {
+  .sidebar-wrapper {
+    border-radius: 1.6em;
+  }
+  .nav-wrapper {
+    height: calc(100% - 9rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
