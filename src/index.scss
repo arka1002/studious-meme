@@ -47,6 +47,9 @@ textarea {
   .nav-icon {
     @apply relative mx-2 text-gray-500 text-lg;
   }
+  .button-bg {
+    background: linear-gradient(89.09deg, rgb(14, 116, 105) 3.31%, rgb(43, 174, 149) 95.19%);
+  }
 
   .circle1,
   .circle2 {
