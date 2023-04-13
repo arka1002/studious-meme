@@ -117,8 +117,8 @@ export default function Metrics() {
                 </div>
                 <div>
                     <Button className="!w-[155px] !h-10 !rounded-md bg-[#1FC39E] !p-0 !font-normal !text-white">
-                        <Next className="inline-block mr-[10px]" />
                         Next
+                        <Next className="inline-block ml-[10px] mb-[2px]" />
                     </Button>
                 </div>
             </div>
