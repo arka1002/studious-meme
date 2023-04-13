@@ -1,1 +1,51 @@
-const Navbar = [];
+// const Navbar = [
+//   {
+//     linkto: "/general",
+//     pathname: "path",
+//     title: "General",
+//     active: true,
+//     icon: <Home className="font-bold" />,
+//   },
+//   {
+//     linkto: "/valuation",
+//     pathname: "path",
+//     active: false,
+//     title: "Valuation",
+//     icon: <Work />,
+//   },
+//   {
+//     linkto: "/revenue",
+//     pathname: "path",
+//     title: "Revenue",
+//     icon: <Activity />,
+//     active: false,
+//   },
+//   {
+//     linkto: "/expenses",
+//     pathname: "path",
+//     title: "Expenses",
+//     icon: <Expenses />,
+//     active: false,
+//   },
+//   {
+//     linkto: "/cap-table",
+//     pathname: "path",
+//     title: "Cap Table",
+//     icon: <Captable />,
+//     active: false,
+//   },
+//   {
+//     linkto: "/financial-statement",
+//     pathname: "hello",
+//     title: "Financial Statement",
+//     icon: <Swap />,
+//     active: false,
+//   },
+//   {
+//     linkto: "/ai",
+//     pathname: "hello",
+//     title: "Crossval AI",
+//     icon: <Brain />,
+//     active: false,
+//   },
+// ];
