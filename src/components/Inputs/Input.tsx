@@ -7,6 +7,7 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
   id: string;
   name: string;
   type: string;
+  symbol: string;
   label: string;
   disabled?: boolean;
   value?: number | string | undefined;
@@ -17,13 +18,16 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
 const Input: FC<InputProps> = (props) => {
   const [field, meta] = useField(props);
   return (
-    <>
+    <div className="relative">
       <label
         htmlFor={props.id}
         className={`block text-base mb-1 font-medium text-black capitalize ${props.labelclassName}`}
       >
         {props.label}
       </label>
+      <span className="absolute left-3 top-2.5 font-medium text-black">
+        {!!props.symbol ? props.symbol : ""}
+      </span>
       <input
         {...field}
         {...props}
@@ -33,7 +37,7 @@ const Input: FC<InputProps> = (props) => {
       {meta.touched && meta.error ? (
         <div className="error text-red-600 my-2">{meta.error}</div>
       ) : null}
-    </>
+    </div>
   );
 };
 
