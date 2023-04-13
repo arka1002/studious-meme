@@ -32,7 +32,7 @@ const Input: FC<InputProps> = (props) => {
         <input
           {...field}
           {...props}
-          className={`w-full bg-inputArea rounded-xl pl-9 px-3 py-2 border-none outline-none focus:shadow-outline text-gray-700 focus:ring-1 focus:ring-gray-300 ${props.inputclassName}`}
+          className={`w-full bg-inputArea rounded-xl px-3 py-2 border-none outline-none focus:shadow-outline text-gray-700 focus:ring-1 focus:ring-gray-300 ${props.inputclassName}`}
           autoComplete="off"
         />
       </div>
