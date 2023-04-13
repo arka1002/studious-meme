@@ -1,6 +1,7 @@
 import Button from "components/Buttons/Button";
 import Input from "components/Inputs/Input";
 import { Form, Formik } from "formik";
+import DoughNutChart from "./ExpensesChart";
 
 export default function Expenses() {
     return (
@@ -38,6 +39,7 @@ export default function Expenses() {
                     </>
                 )}
             </Formik>
+            <DoughNutChart/>
         </div>
     );
 };
