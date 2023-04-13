@@ -50,6 +50,11 @@ textarea {
   .button-bg {
     background: linear-gradient(89.09deg, rgb(14, 116, 105) 3.31%, rgb(43, 174, 149) 95.19%);
   }
+  .green-gradient {
+    background: linear-gradient(#0e7469, #2bae95);
+    background-clip: text;
+    color: transparent;
+}
 
   .circle1,
   .circle2 {

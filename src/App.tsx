@@ -7,6 +7,7 @@ import AuthLayout from "layouts/AuthLayout";
 import UploadExcel from "pages/OnBoarding/ExcelUpload";
 import DashboardLayout from "layouts/DashboardLayout";
 import Expenses from "components/OnBoardingData/Expenses";
+import Metrics from "components/OnBoardingData/Metrics";
 function App() {
   return (
     <>
@@ -21,7 +22,7 @@ function App() {
         <Route element={<DashboardLayout />}>
           <Route path="/crossval-ai" element={<CrossvalAi />} />
         </Route>
-        <Route path="/arka" element={<Expenses/>}></Route>
+        <Route path="/arka" element={<Metrics/>}></Route>
       </Routes>
     </>
   );
