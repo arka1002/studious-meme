@@ -1,6 +1,31 @@
 import InputRange from "./InputRange";
+import { ReactComponent as Delete } from "../../assets/delete.svg";
+import { ReactComponent as Edit } from "../../assets/edit.svg";
 
 export default function Metrics() {
+    const data = {
+        headers: [
+            "Sr. No.",
+            "Runaway (in month)",
+            "CAC (in $)",
+            "Date",
+            "Action"
+        ],
+    }
+    const items = [
+        {
+            srno: "1",
+            runaway: "0.40",
+            cac: "0.01",
+            date: "@mdo"
+        },
+        {
+            srno: "1",
+            runaway: "0.40",
+            cac: "0.01",
+            date: "@mdo"
+        }
+    ]
     return (
         <div className="p-6 bg-white">
             <div className="text-2xl font-semibold text-customGray-2000">Metrics</div>
@@ -48,7 +73,38 @@ export default function Metrics() {
                     </div>
                 
             </div>
-            <div className="my-10 shadow-lg rounded-xl"></div>
+            <div className="my-10 shadow-lg rounded-xl">
+            <table className="bg-white w-full">
+                    <thead className="border-b">
+                        <tr>
+                            {data.headers.map(header => <th scope="col" className="px-6 py-4 text-sm font-medium text-left text-gray-400">{header}</th>)}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {items.map(item => (
+                            <>
+                                <tr className="transition duration-300 ease-in-out bg-white border-b hover:bg-gray-100">
+                                    <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{item.srno}</td>
+                                    <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{item.runaway}</td>
+                                    <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{item.cac}</td>
+                                    <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{item.date}</td>
+                                    <td className="flex justify-center gap-4 py-2">
+                                        <Delete/>
+                                        <Edit/>
+                                    </td>
+                                </tr>
+                            </>
+                        ))}
+                        <tr className="bg-[#F4FFFE] border-b transition duration-300 ease-in-out">
+                            <td></td>
+                            <td className="px-6 py-4 text-sm font-medium text-center text-green1 whitespace-nowrap">Total Expenses</td>
+                            <td className="px-6 py-4 text-sm font-medium text-green1 whitespace-nowrap">$ 7693.80</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 };
