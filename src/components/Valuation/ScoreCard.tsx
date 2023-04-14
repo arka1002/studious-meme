@@ -4,6 +4,7 @@ import { ReactComponent as Plus } from "../../assets/plus.svg";
 import { ReactComponent as Pen } from "../../assets/pen.svg";
 import { ReactComponent as Save } from "../../assets/save.svg";
 import { useState } from "react";
+import styles from './ScoreCard.module.css'
 
 
 
@@ -115,14 +116,14 @@ export default function SC() {
 function Modal({ children, shown, close }) {
     return shown ? (
         <div
-            className="modal-backdrop"
+            className={styles.modalbackdrop}
             onClick={() => {
                 // close modal when outside of modal is clicked
                 close();
             }}
         >
             <div
-                className="modal-content"
+                className={styles.modalcontent}
                 onClick={e => {
                     // do not close modal if anything inside modal content is clicked
                     e.stopPropagation();
