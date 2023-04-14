@@ -7,6 +7,7 @@ import { useState } from "react";
 import styles from './ScoreCard.module.css'
 import Input from "components/Inputs/Input";
 import { Form, Formik } from "formik";
+import Button from "components/Buttons/Button";
 
 
 
@@ -58,7 +59,6 @@ export default function SC() {
                             toggleModal(false);
                         }}
                     >
-
                         <div>
                             <Formik
                                 initialValues={{
@@ -76,6 +76,8 @@ export default function SC() {
                                     </>
                                 )}
                             </Formik>
+                            <div className="mt-4"><Button className="!w-[80px] !text-white !p-[0px] bg-[#1fc39e] !h-[40px]">123</Button></div>
+                            
                         </div>
                         {/* <div><Input id={"6"} name={"hosting"} type={"text"} label={`Hosting Cost Per User`} placeholder={`4`} /></div> */}
                     </Modal>
