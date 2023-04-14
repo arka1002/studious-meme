@@ -10,6 +10,7 @@ import Expenses from "components/OnBoardingData/Expenses";
 import Metrics from "components/OnBoardingData/Metrics";
 import NavTabs from "components/Valuation/Navtabs";
 import BusinessModelType from "components/OnBoardingData2/BusinessModelType";
+import CompareWithCompetitors from "components/OnBoardingData2/CompareWithCompetitors";
 function App() {
   return (
     <>
@@ -24,7 +25,7 @@ function App() {
         <Route element={<DashboardLayout />}>
           <Route path="/crossval-ai" element={<CrossvalAi />} />
         </Route>
-        <Route path="/arka" element={<BusinessModelType/>}></Route>
+        <Route path="/arka" element={<CompareWithCompetitors/>}></Route>
       </Routes>
     </>
   );
