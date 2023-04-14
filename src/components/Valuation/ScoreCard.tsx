@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { ReactComponent as Plus } from "../../assets/plus.svg";
 import { ReactComponent as Pen } from "../../assets/pen.svg";
 import { ReactComponent as Save } from "../../assets/save.svg";
@@ -6,8 +8,9 @@ import { useState } from "react";
 
 
 export default function SC() {
+    const [modalShown, toggleModal] = useState(false);
     const [edit, setEdit] = useState('nonedit')
-    function changeMode(params:any) {
+    function changeMode(params: any) {
         if (edit !== `${params}`) {
             setEdit(`${params}`)
         } else {
@@ -42,8 +45,18 @@ export default function SC() {
                 <div className="flex flex-row-reverse pb-4 items-center">
                     <div className="flex gap-2 cursor-pointer items-center text-[#14937E]">
                         <div>Add Value Driver</div>
-                        <div><Plus /></div>
+                        <div><Plus onClick={() => {
+                            toggleModal(!modalShown);
+                        }} /></div>
                     </div>
+                    <Modal
+                        shown={modalShown}
+                        close={() => {
+                            toggleModal(false);
+                        }}
+                    >
+                        <h1>Look! I'm inside the modal!</h1>
+                    </Modal>
                 </div>
                 <table className="w-full py-4">
                     <thead className="border-b border-[#1FC39E]">
@@ -64,7 +77,7 @@ export default function SC() {
                                         )}
                                     </td>
                                     <td className="text-center py-4 px-1 lg:px-3 font-normal text-sm text-gray-600">{item.valueDriver}</td>
-                                    
+
                                     {edit === item.valueDriver ? (<td className="text-center py-4 font-semibold text-sm text-gray-600">
                                         <input type="text" pattern="[0-9]" id="discountedrate" className="w-28 border-none outline-none text-center focus:shadow-outline  bg-gray-200 p-1 rounded font-normal focus:ring-1 text-md focus:ring-gray-400" defaultValue={item.weight} />
                                     </td>) : (
@@ -75,7 +88,7 @@ export default function SC() {
                                     </td>) : (
                                         <td className="text-center py-4 font-semibold text-sm text-gray-600">{item.yvs}</td>
                                     )}
-                                    
+
                                     <td className="text-center py-4 px-1 lg:px-3 font-normal text-sm text-gray-600">{item.factor}</td>
                                 </tr>
                             </>
@@ -96,3 +109,28 @@ export default function SC() {
         </>
     )
 };
+
+
+
+function Modal({ children, shown, close }) {
+    return shown ? (
+        <div
+            className="modal-backdrop"
+            onClick={() => {
+                // close modal when outside of modal is clicked
+                close();
+            }}
+        >
+            <div
+                className="modal-content"
+                onClick={e => {
+                    // do not close modal if anything inside modal content is clicked
+                    e.stopPropagation();
+                }}
+            >
+                <button onClick={close}>Close</button>
+                {children}
+            </div>
+        </div>
+    ) : null;
+}
