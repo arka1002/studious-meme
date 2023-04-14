@@ -5,6 +5,8 @@ import { ReactComponent as Pen } from "../../assets/pen.svg";
 import { ReactComponent as Save } from "../../assets/save.svg";
 import { useState } from "react";
 import styles from './ScoreCard.module.css'
+import Input from "components/Inputs/Input";
+import { Form, Formik } from "formik";
 
 
 
@@ -56,7 +58,26 @@ export default function SC() {
                             toggleModal(false);
                         }}
                     >
-                        <h1>Look! I'm inside the modal!</h1>
+
+                        <div>
+                            <Formik
+                                initialValues={{
+                                    password: "",
+                                    email: "",
+                                }}
+                                onSubmit={(values) => {
+                                    console.log(values);
+                                }}>
+                                {({ errors, touched }) => (
+                                    <>
+                                        <Form>
+                                            <Input id={"1"} name={"test"} type={"text"} label={``} placeholder={`Others`} />
+                                        </Form>
+                                    </>
+                                )}
+                            </Formik>
+                        </div>
+                        {/* <div><Input id={"6"} name={"hosting"} type={"text"} label={`Hosting Cost Per User`} placeholder={`4`} /></div> */}
                     </Modal>
                 </div>
                 <table className="w-full py-4">
@@ -129,7 +150,7 @@ function Modal({ children, shown, close }) {
                     e.stopPropagation();
                 }}
             >
-                <button onClick={close}>Close</button>
+                <button onClick={close}></button>
                 {children}
             </div>
         </div>
