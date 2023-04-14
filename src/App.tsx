@@ -8,6 +8,7 @@ import UploadExcel from "pages/OnBoarding/ExcelUpload";
 import DashboardLayout from "layouts/DashboardLayout";
 import Expenses from "components/OnBoardingData/Expenses";
 import Metrics from "components/OnBoardingData/Metrics";
+import NavTabs from "components/Valuation/Navtabs";
 function App() {
   return (
     <>
@@ -22,7 +23,7 @@ function App() {
         <Route element={<DashboardLayout />}>
           <Route path="/crossval-ai" element={<CrossvalAi />} />
         </Route>
-        <Route path="/arka" element={<Metrics/>}></Route>
+        <Route path="/arka" element={<NavTabs/>}></Route>
       </Routes>
     </>
   );
